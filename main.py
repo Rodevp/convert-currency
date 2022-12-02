@@ -40,3 +40,21 @@ def currencie_rate(currency_one, currency_two) :
     return rate
 
 
+def convert_currency(currency_one, currency_two, amount) :
+
+    rate = currencie_rate(currency_one, currency_two)
+
+    if rate is None:
+        return
+
+    try:
+        amount = float(amount)
+    except:
+        print("Invalid amount")
+        return
+
+    converted = rate * amount
+    print(f"{amount} {currency_one} is to equal {converted} {currency_two}")    
+
+    return converted
+
