@@ -87,3 +87,7 @@ def main() :
             currencie_rate(currency1, currency2)
         else:
             print("Unrecognized command!")
+
+
+if __name__ == "__main__" :
+    main()
