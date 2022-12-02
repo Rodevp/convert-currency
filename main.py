@@ -32,4 +32,11 @@ def currencie_rate(currency_one, currency_two) :
         print("invalid currencies")
         return
 
-    return list( response.values() )[0]
+
+    rate = list( response.values() )[0]
+
+    print(f"{currency_one} -> {currency_two} = {rate}")
+
+    return rate
+
+
