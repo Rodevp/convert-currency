@@ -13,7 +13,7 @@ def get_all_currencies() :
 
 def show_currencies(currencies) :
 
-    for currency in currencies :
+    for _, currency in currencies :
         name = currency["currencyName"]
         _id = currency["id"]
         symbol = currency.get("currencySymbol", "")
@@ -21,3 +21,15 @@ def show_currencies(currencies) :
         print("--------------------------------------")
         print(f"{_id} - {name} - {symbol}")
 
+
+
+def currencie_rate(currency_one, currency_two) :
+    endpoint = f"api/v7/convert?q={currency_one}_{currency_two}&compact=ultra&apiKey={API_KEY}"
+
+    response = get(BASE_URL + endpoint).json()
+
+    if len(response) == 0 :
+        print("invalid currencies")
+        return
+
+    return list( response.values() )[0]
